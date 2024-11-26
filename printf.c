@@ -7,8 +7,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args; /*declaramos la lista de argumentos*/
-	int i, j, count = 0; /*contar la cantidad de argumentos que nos pasen*/
-	char *str, c;
+	int i, count = 0; /*contar la cantidad de argumentos que nos pasen*/
 
 	if (format == NULL) /*verificamos si format es null*/
 		return (-1);
@@ -21,15 +20,10 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c':
-					c = va_arg(args, int); /*obtener el caracter*/
-					count += write(1, &c, 1); /*count con bytes que nos devuelve write*/
+					count += print_char(va_arg(args, int));
 					break;
 				case 's': /*corroboramos si es de tipo string*/
-					str = va_arg(args, char *);
-					if (str == NULL) /*si la string es vacia nos devuelve error*/
-						return (-1);
-					for (j = 0; str[j] != '\0'; j++)
-						count += write(1, &str[j], 1);
+					count += print_str(va_arg(args, char *));
 					break;
 				case '%': /*corroboramos si es de tipo %*/
 					count += write(1, "%", 1);
