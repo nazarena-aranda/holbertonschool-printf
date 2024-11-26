@@ -4,4 +4,5 @@
 #include <stdarg.h>
 #include <unistd.h>
 int _printf(const char *format, ...);
+int print_num(int n);
 #endif
