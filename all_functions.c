@@ -7,14 +7,11 @@
 
 int print_char(char c)
 {
-	int count = 0;
-
 	if (c)
 	{
 		write(1, &c, 1);
-		count++;
 	}
-	return (count);
+	return (1);
 }
 
 /**
@@ -36,4 +33,55 @@ int print_str(char *str)
 		write(1, &str[j], 1);
 	}
 	return (count);
+}
+
+#define INT_MIN -2147483648
+#define INT_MIN_STR "2147483648"
+#define INT_MIN_STR_LEN 10
+/**
+ * print_num - Print format number
+ * @n: Number to print
+ * Return: Total number of characters printed
+ */
+int print_num(int n)
+{
+	char buffer[11]; /* Buffer para almacenar los caracteres del número */
+	int i = 0, total = 0; /* Iterar y contar los caracteres de n*/
+
+	/* Caso especial para el 0 */
+	if (n == 0)
+	{
+		write(1, 0, 1);
+		return (1);
+	}
+
+	/* Caso especial para INT_MIN */
+	if (n == INT_MIN)
+	{
+		write(1, "-", 1);
+		write(1, INT_MIN_STR, INT_MIN_STR_LEN);
+		return (1 + INT_MIN_STR_LEN);
+	}
+
+	/* Manejo de números negativos */
+	if (n < 0)
+	{
+		total += write(1, "-", 1);
+		n = -n;
+	}
+
+	/* Convertir el número a una cadena en el buffer */
+	while (n > 0)
+	{
+		buffer[i++] = (n % 10) + '0';
+		n /= 10;
+	}
+
+	/* Escribir el contenido del buffer en orden inverso */
+	while (i > 0)
+	{
+		total += write(1, &buffer[--i], 1);
+	}
+
+	return (total);
 }

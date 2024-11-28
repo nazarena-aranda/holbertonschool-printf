@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%') /*si encontramos un especificador*/
 		{
-			i = i + 1; /*nos movemos al siguiente argumento luego del especificador*/
+			i++; /*nos movemos al siguiente argumento luego del especificador*/
 			switch (format[i])
 			{
 				case 'c':
@@ -28,6 +28,11 @@ int _printf(const char *format, ...)
 				case '%': /*corroboramos si es de tipo %*/
 					count += write(1, "%", 1);
 					break;
+					/*en los casos de abajo corroboramos que sea un num*/
+				case 'd':
+				case 'i':
+					count += print_num(va_arg(args, int));
+					break;
 				default: /*en el caso de que no sea ninguno de los que queremos, error*/
 					return (-1);
 			}
@@ -35,6 +40,6 @@ int _printf(const char *format, ...)
 		else
 			count += write(1, &format[i], 1);
 		va_end(args);
-	}
+	}`
 	return (count);
 }
