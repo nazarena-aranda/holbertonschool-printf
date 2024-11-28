@@ -38,7 +38,7 @@ The `_printf` function returns the total number of characters printed, excluding
 
 Below is a flowchart depicting the flow of execution for the `_printf` function:
 
-![Flowchart](https://github.com/nazarena-aranda/Images/blob/main/FlowchartPrintf.drawio.png?raw=true)
+![Flowchart](https://github.com/nazarena-aranda/Images/blob/main/Flowchart-_Pritnf.drawio.png?raw=true)
 
 ## Files in this Repository
 
@@ -79,7 +79,11 @@ _printf("Minimum Integer:[%d]\n", INT_MIN);
 ```
 Output:
 ```
-String:[I am a string!] Character:[H] Percent:[%] Negative:[-762534] Minimum Integer:[-2147483648]
+String:[I am a string!]
+Character:[H]
+Percent:[%]
+Negative:[-762534]
+Minimum Integer:[-2147483648]
 ```
 ## Conversion Specifiers Supported
 - **%c**: Prints a single character. Implemented in `print_char` using the `write` system call.
