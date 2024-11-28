@@ -9,36 +9,23 @@
  */
 int main(void)
 {
-	int len;
-	int len2;
-	unsigned int ui;
-	void *addr;
-
-	len = _printf("Let's try to printf a simple sentence.\n");
-	len2 = printf("Let's try to printf a simple sentence.\n");
-	ui = (unsigned int)INT_MAX + 1024;
-	addr = (void *)0x7ffe637541f0;
-	_printf("Length:[%d, %i]\n", len, len);
-	printf("Length:[%d, %i]\n", len2, len2);
-	_printf("Negative:[%d]\n", -762534);
-	printf("Negative:[%d]\n", -762534);
-	_printf("Unsigned:[%u]\n", ui);
-	printf("Unsigned:[%u]\n", ui);
-	_printf("Unsigned octal:[%o]\n", ui);
-	printf("Unsigned octal:[%o]\n", ui);
-	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-	_printf("Character:[%c]\n", 'H');
-	printf("Character:[%c]\n", 'H');
-	_printf("String:[%s]\n", "I am a string !");
-	printf("String:[%s]\n", "I am a string !");
-	_printf("Address:[%p]\n", addr);
-	printf("Address:[%p]\n", addr);
-	len = _printf("Percent:[%%]\n");
-	len2 = printf("Percent:[%%]\n");
-	_printf("Len:[%d]\n", len);
-	printf("Len:[%d]\n", len2);
-	_printf("Unknown:[%r]\n");
-	printf("Unknown:[%r]\n");
-	return (0);
+	_printf("Character: %c\n", 'A');
+	_printf("String: %s\n", "Hello, World!");
+	_printf("Percent: %%\n");
+	_printf("Just a plain string.\n");
+	_printf("Char: %c, String: %s\n", 'B', "Another String");
+	_printf("Two chars: %c %c\n", 'X', 'Y');
+	_printf("Two strings: %s and %s\n", "First", "Second");
+	_printf("Percent 1: %% Percent 2: %%\n");
+	_printf("Null char: %c\n", '\0');
+	_printf("Null string: %s\n", (char *)NULL);
+	_printf("");
+	_printf("Only percent: %");
+	_printf("Unsupported specifier: %x\n");
+	_printf("Start %s end.\n", "middle");
+	_printf("Char: %c, String: %s, Percent: %%\n", 'Z', "Test String");
+	_printf("Char: %c, String: %s, Percent: %%\n", 'Z', "Test String");
+	_printf("Consecutive: %c%s\n", 'A', "B");
+	_printf("This is a very long text to test the implementation: %s\n", "Long String Test");
+return(0);
 }
