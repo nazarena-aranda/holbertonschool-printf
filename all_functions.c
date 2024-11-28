@@ -7,6 +7,7 @@
 
 int print_char(char c)
 {
+	/*verifica si la variable c tiene un valor distinto de cero*/
 	if (c)
 	{
 		write(1, &c, 1);
@@ -22,9 +23,10 @@ int print_char(char c)
 
 int print_str(char *str)
 {
+	/*Comprueba si el puntero str es NULL. Si lo es, devuelve error*/
 	int j, count = 0;
 
-	if (str == NULL) /*si la string es vacia nos devuelve error*/
+	if (str == NULL)
 		return (-1);
 
 	for (j = 0; str[j] != '\0'; j++)
