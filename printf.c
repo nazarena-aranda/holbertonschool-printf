@@ -7,14 +7,14 @@
 int _printf(const char *format, ...)
 {
 	va_list args; /*declaramos la lista de argumentos*/
-	int i, count = 0; 
+	int i, count = 0;
 
 	if (format == NULL)
 		return (-1);
 	va_start(args, format); /*inicializamos la lista de argumentos*/
-	for (i = 0; format[i] != '\0'; i++) 
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%') 
+		if (format[i] == '%')
 		{
 			i++;
 			/*Procesamos segun el tipo de especificador*/
@@ -29,12 +29,11 @@ int _printf(const char *format, ...)
 				case '%':
 					count += write(1, "%", 1);
 					break;
-					
 				case 'd':
 				case 'i':
 					count += print_num(va_arg(args, int));
 					break;
-				default: 
+				default:
 					return (-1);
 			}
 		}
