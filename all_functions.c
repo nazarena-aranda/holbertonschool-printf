@@ -27,8 +27,7 @@ int print_str(char *str)
 	int j, count = 0;
 
 	if (str == NULL)
-		return (-1);
-
+		return (write(1, "(null)", 6));
 	for (j = 0; str[j] != '\0'; j++)
 	{
 		count++;
@@ -40,6 +39,7 @@ int print_str(char *str)
 #define INT_MIN -2147483648
 #define INT_MIN_STR "2147483648"
 #define INT_MIN_STR_LEN 10
+
 /**
  * print_num - Print format number
  * @n: Number to print
@@ -48,13 +48,12 @@ int print_str(char *str)
 int print_num(int n)
 {
 	char buffer[11]; /* Buffer para almacenar los caracteres del número */
-	int i = 0, total = 0; /* Iterar y contar los caracteres de n*/
+	int i = 0, total = 0; /* Iterar y contar los caracteres de n */
 
 	/* Caso especial para el 0 */
 	if (n == 0)
 	{
-		write(1, 0, 1);
-		return (1);
+		return (write(1, "0", 1));
 	}
 
 	/* Caso especial para INT_MIN */
@@ -87,3 +86,4 @@ int print_num(int n)
 
 	return (total);
 }
+
