@@ -35,7 +35,10 @@ int _printf(const char *format, ...)
 					break;
 				default:
 					count += write(1, "%", 1);
-					count += write(1, &format[i], 1);
+					if (format[i] != '\0')
+					{
+						count += write(1, &format[i], 1);
+					}
 					break;
 			}
 		}
