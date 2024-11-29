@@ -40,4 +40,10 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
+    _printf("Especificador desconocido: %z\n");
+printf("Especificador desconocido: %z\n");
+
+_printf("Especificador vacío: %\n");
+printf("Especificador vacío: %\n");
     return (0);
+}
