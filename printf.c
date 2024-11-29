@@ -18,9 +18,7 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			if (format[i] == '\0')
-			{
 				return (-1); /* Retornar error si no hay especificador*/
-			}
 			/*Procesamos segun el tipo de especificador*/
 			switch (format[i])
 			{
@@ -38,7 +36,7 @@ int _printf(const char *format, ...)
 					count += print_num(va_arg(args, int));
 					break;
 				default:
-					return (-1);
+					count += write(1, &format[i], 1);
 					break;
 			}
 		}
